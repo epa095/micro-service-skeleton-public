@@ -1,0 +1,19 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
+logging:
+  level: INFO
+  loggers:
+    io.dropwizard: INFO
+    com.vimond : DEBUG
+  appenders:
+    - type: console
+
+vimond-api:
+  endpoint: vimond-rest-api.ha.expo-first.vimondtv.com
+  port: 443

@@ -1,0 +1,48 @@
+subprojects {
+
+    group 'com.vimond.microservice'
+    version '1.0-SNAPSHOT'
+    ext.dropwizard_version = '0.8.+'
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+
+
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+project("vimond-micro-service-skeleton-api") {
+    dependencies {
+        compile group: 'io.dropwizard', name: 'dropwizard-core', version: dropwizard_version
+    }
+}
+
+project(':vimond-micro-service-skeleton-service') {
+
+    apply plugin: 'application'
+    ext.mainClass = 'com.vimond.service.VimondMicroServiceApp'
+    ext.configPath = "$rootDir/vimond-micro-service-skeleton-service/src/main/resources/"
+    mainClassName = 'com.vimond.service.VimondMicroServiceApp'
+
+
+    jar {
+        manifest {
+            attributes 'Main-Class': 'com.vimond.service.VimondMicroServiceApp'
+        }
+    }
+
+
+    dependencies {
+        compile project(':vimond-micro-service-skeleton-api')
+        compile group: 'io.dropwizard', name: 'dropwizard-core', version: dropwizard_version
+        compile group: 'io.dropwizard', name: 'dropwizard-client', version: dropwizard_version
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+
+    run {
+        args 'server', configPath + 'config.yml'
+    }
+
+}
