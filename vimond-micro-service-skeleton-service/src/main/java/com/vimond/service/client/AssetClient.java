@@ -70,7 +70,7 @@ public class AssetClient extends BaseClient {
                 .setScheme("https")
                 .setHost(this.url)
                 .setPort(this.port)
-                .setPath("/api/web/search/root")
+                .setPath("/api/web/search/categories/2320/assets")
                 .setParameter("query", "documentType:asset")
                 .setParameter("start", String.valueOf(pageStart))
                 .build();

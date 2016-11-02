@@ -2,8 +2,6 @@ package com.vimond.resources.datastructures;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.validation.constraints.NotNull;
 
@@ -13,9 +11,6 @@ import javax.validation.constraints.NotNull;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Asset {
-
-
-    private static final Logger LOG = LoggerFactory.getLogger(Asset.class);
 
     @NotNull
     @JsonProperty("@id")
@@ -111,4 +106,128 @@ public class Asset {
 
     @JsonProperty
     private String level;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public int getChannelId() {
+        return channelId;
+    }
+
+    public boolean isArchive() {
+        return archive;
+    }
+
+    public boolean isAspect16x9() {
+        return aspect16x9;
+    }
+
+    public int getAssetTypeId() {
+        return assetTypeId;
+    }
+
+    public String getAssetTypeName() {
+        return assetTypeName;
+    }
+
+    public String getCategoryPath() {
+        return categoryPath;
+    }
+
+    public boolean isCopyLiveStream() {
+        return copyLiveStream;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isDrmProtected() {
+        return drmProtected;
+    }
+
+    public float getAccurateDuration() {
+        return accurateDuration;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public int getEncoderGroupId() {
+        return encoderGroupId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public boolean isItemPublished() {
+        return itemPublished;
+    }
+
+    public boolean isLabeledAsFree() {
+        return labeledAsFree;
+    }
+
+    public boolean isLive() {
+        return live;
+    }
+
+    public String getLiveBroadcastTime() {
+        return liveBroadcastTime;
+    }
+
+    public int getOnDemandTimeBegin() {
+        return onDemandTimeBegin;
+    }
+
+    public int getOnDemandTimeEnd() {
+        return onDemandTimeEnd;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getCategoryTitle() {
+        return categoryTitle;
+    }
+
+    public boolean isDownloadable() {
+        return downloadable;
+    }
+
+    public boolean isLivePublished() {
+        return livePublished;
+    }
+
+    public String getPublish() {
+        return publish;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public String getLevel() {
+        return level;
+    }
 }

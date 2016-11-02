@@ -1,5 +1,6 @@
 package com.vimond.service;
 
+import com.vimond.service.algo.Knapsack;
 import com.vimond.service.client.AssetClient;
 import com.vimond.service.client.CategoriesClient;
 import com.vimond.service.configuration.VimondEndPointConfiguration;
@@ -16,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.client.Client;
+import java.util.stream.Collectors;
 
 /**
  * Created by Thelo on 11/10/16.
@@ -58,6 +60,7 @@ public class VimondMicroServiceApp extends Application<VimondMicroServiceConfigu
             AssetClient assetClient = new AssetClient(client, endpoint.getEndpoint(), endpoint.getPort(), catClient);
             environment.jersey().register(assetClient);
 
+            environment.jersey().register(new Knapsack(assetClient.getAllAsset().stream().filter(asset -> asset.getDuration()>0).collect(Collectors.toList())));
 
             // Create resources
             SearchEngine engine = new SearchEngine(assetClient, catClient);
